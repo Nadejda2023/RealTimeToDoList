@@ -26,7 +26,7 @@ export class TasksController {
 
   @Get()
   @HttpCode(200)
-  async getAllTasks(@Query() status?: TaskStatus): Promise<Task[]> {
+  async getAllTasks(@Query('status') status?: TaskStatus): Promise<Task[]> {
     return this.taskService.getAllTasks(status);
   }
 

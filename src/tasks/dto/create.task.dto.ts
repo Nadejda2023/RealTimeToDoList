@@ -1,4 +1,4 @@
-import { TaskStatus } from '@prisma/client';
+//import { TaskStatus } from '@prisma/client';
 import { IsInt, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class CreateTaskDTO {
@@ -18,8 +18,13 @@ export class CreateTaskDTO {
   createdAt: Date;
 
   @IsNotEmpty()
-  status: TaskStatus;
+  status: TaskStatusT;
 
   @IsOptional()
   mediaUrl: string;
+}
+
+export enum TaskStatusT {
+  inProcess = 'inProcess',
+  done = 'done',
 }

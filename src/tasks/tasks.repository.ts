@@ -31,12 +31,11 @@ export class TasksRepository {
     return foundTask;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async getAllTasks(status?: TaskStatus) {
+    const whereClause = status ? { status } : {};
+
     const allTasks = await this.prisma.task.findMany({
-      // where: {
-      //  status: status || 'inProcess',
-      //},
+      where: whereClause,
       orderBy: { status: 'asc' },
     });
     return allTasks;

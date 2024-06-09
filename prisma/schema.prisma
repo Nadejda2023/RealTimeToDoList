@@ -32,6 +32,6 @@ model Task {
 }
 
 enum TaskStatus {
-  inProcess String
-  done String
+  inProcess 
+  done 
 }
